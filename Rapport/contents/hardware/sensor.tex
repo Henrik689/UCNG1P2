@@ -3,15 +3,15 @@ problemanalyse intro
 \section{Valg af sensor}
 I dette afsnit vil der blive diskuteret forskellige valg af sensorer, deres specifikationer som kan danne grundlag for et valg af en sensor.
 
-Kriterier for valg af sensor.
+Kriterier for valg af sensor er:
 \begin{enumerate}
 	\item[•]Digital, analog, modstand eller transistor
 	    \begin{enumerate}
-	        \item[-]Digital er nemmere at connecte i forhold til analog
-	        \item[-]En analog sensor bliver påvirket af kredsløbet
+	        \item[-]Digital er nemmere at connecte i forhold til analog.
+	        \item[-]En analog sensor kan blive påvirket af kredsløbet.
 	    \end{enumerate}	
 	
-	\item[•]Præcision 
+	\item[•]Præcision på sensoren 
 	\item[•]Måleafstand
 		\begin{enumerate}
 			\item[-]Fra 5 - 20 grader celcius. Reference: Ib Helmer Nielsen
@@ -29,17 +29,23 @@ Kriterier for valg af sensor.
 	
 \end{enumerate}
 
+
 \begin{table}[]
 \centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{lllll}
-                            & LM95231cimm-1          & LM63DIMA               & LM86CIM                & Ds18b20+                        \\
-Digital                     & Ja                     & Ja                     & Ja                     & Ja                              \\
-Præcision                   & $\pm$1 $^{\circ}$C, $\pm$2.5 $^{\circ}$C         & $\pm$1 $^{\circ}$C, $\pm$3 $^{\circ}$C           & $\pm$1 $^{\circ}$C, $\pm$3 $^{\circ}$C           & $\pm$0,5$^{\circ}$C (ved -10 til +85 grader) \\
-Driftstemperatur            & 0 $^{\circ}$C til +85 $^{\circ}$C        & 0 $^{\circ}$C til +85 $^{\circ}$C        & 0 $^{\circ}$C til 125 $^{\circ}$C        & -55 til 125$^{\circ}$C                   \\
-Montering                   & Surface mounted device & Surface mounted device & Surface mounted device & Through hole technology         \\
-Pris                        & 18,10 DKK              & 18,85 DKK              & 11,864 DKK             & 35,20 DKK                       \\
-Drifts-/ forsyningsspænding & 3,0 V til 3,6 V        & 3,0 V til 3,6 V        & 3,0 V til 3,6 V        & 3,0 V til 5,5V                 
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ & LM9523 & LM53DIMA & LM86CIM & Ds18b20 \\ \hline
+Digital & Ja & Ja & Ja & Ja \\ \hline
+Præcision & $\pm$1 $^{\circ}$C, $\pm$2.5 $^{\circ}$C & $\pm$1 $^{\circ}$C, $\pm$3 $^{\circ}$C & $\pm$1 $^{\circ}$C, $\pm$3 $^{\circ}$C & \begin{tabular}[c]{@{}l@{}}$\pm$0,5$^{\circ}$C (ved -10 \\ til +85$^{\circ}$C)\end{tabular} \\ \hline
+Driftstemperatur & 0 $^{\circ}$C til +85 $^{\circ}$C & 0 $^{\circ}$C til 85 $^{\circ}$C & 0 $^{\circ}$C til 85 $^{\circ}$C & -55$^{\circ}$C til 125$^{\circ}$C \\ \hline
+Montering & SMD & SMD & SMD & Tht \\ \hline
+Pris & 18,10 DKK & 18,85 DKK & 11,864 DKK & 35,20 DKK \\ \hline
+Driftsspænding & 3,0 V til 3,6 V & 3,0 V til 3,6 V & 3,0 V til 3,6 V & 3,0 V til 5,5V \\ \hline
 \end{tabular}
+\caption{Tabel over de forskellige sensorer}
+\label{sensor_tabel}
 \end{table}
+
+
+
+\newpage
