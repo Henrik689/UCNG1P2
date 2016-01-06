@@ -1,31 +1,8 @@
-\section{Description of the software structure and functionality}
-Based on the previously established requirement specifications and software specifications, a design has been made which is shown in the flowchart above (ref. figure \ref{softwarediagram}). It shows the different pathways, the program is able to take throughout the code with the different functions being shown.
+\section{Software struktur og funktionalitet}
+indsæt diagram
 
-\subsection{Interface}
-The product will have two ways to interface it, both a local and a web based interface. The program can be initialized through either of those two interfaces which can be seen on the left side of figure \ref{softwarediagram}. The first thing that happens when the program is initialized is that it performs a self diagnostics. Here it tests if all the sensors are functioning correctly. It is important that the interface is user friendly, so the product is easily accessible by a wide spectrum of users.
 
-\subsection{Main program}
-The main program consists of three functions, \textbf{measure, compare} and \textbf{send/save} as seen on figure \ref{mainprogram} below.
-\img{figures/mainprogram.png}{Diagram of the main function in the software.}{mainprogram}{0.8}\newline
-The main job for the software is to measure the surroundings inside the server room which is done by sensors. These sensors will record values which will be compared to parameters corresponding to safe margins for the different sensors. They can be predefined or set by a user on a later point. Then the recorded values will be stored on a local storage, and sent to an offsite server and stored there as well for extra redundancy in the system.
 
-\subsection{No alarm}
-If the measured data in the main program matches the parameters set beforehand by the technicians, no alarm will be given and the program will return to the main program, where it will continue to run the loop.
-\img{figures/noalarm.png}{Diagram of no alarm loop.}{noalarm}{0.8}\newline
+\subsection{blok på diagram}
 
-The green arrows in figure \ref{noalarm}. shows the loop that will be running if there are no measurements outside the given parameters. This loop will be running unless there is an alarm.
-
-\subsection{Alarm}
-If the measured data on the sensors does not match the predetermined set of parameters, an alarm will be triggered. This alarm will give notice to the user / admin and the technician via email and text message. The email will contain information about which sensors are above the threshold, so the user and  the technicians know which precautions they need to take.
-\newpage
-After the program has given notice about the alarm, it will return to the main program, and start measuring the data from the sensors again.\newline
-\img{figures/alarmloop.png}{Diagram of loop if there is an alarm.}{alarmloop}{0.8}\newline
-\newline
-The red arrows in diagram \ref{alarmloop}. shows the loop that will be running if an alarm is necessary. This loop will only be running if any of the measurements is outside the given parameters.
-
-\subsection{Regulate}
-If the temperature sensors has readings outside the predetermined parameters, the system itself is able to adjust the A/C. This is a precaution the system has to be able to run if the server room gets a temperature that's higher than the predetermined values.\clearpage
-\img{figures/regulateloop.png}{Diagram of the loop when the program regulates the A/C.}{regulateloop}{0.8}
-Figure \ref{regulateloop} show the loop the program normally will be running when the sensors log a temperature that does not match the parameters. As shown by the blue arrows in the diagram \ref{regulateloop}, the program checks the values and if they do not match the given parameters, it will regulate the A/C. The program will then use the same loop as if no alarm.
-\newline
-In some circumstances the program will need to give an alarm and thereby deviate from the loop that normally runs.  This loop sequence will only be initialized, when the program has tried to regulate the A/C for a predetermined amount of time without getting the temperature to fit the predetermined values.  This is determined by the size of the room in order to specify how long it takes to apply the regulation.
+\subsection{blok på diagram}
