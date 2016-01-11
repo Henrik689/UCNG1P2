@@ -8,3 +8,16 @@ Sensoren som bliver beskrevet i hardware afsnittet skal kommunikere med arduino 
   \label{sensor_kom}
 \end{figure}
 \fxnote{ret størrelse til på alle billeder(noget der skal gøres til sidst!)}
+
+
+\subsection{Initialize}
+Initialisering af sensoren gøres ved at sætte 1-wire forbindelsen til sensorsen til low i et specifikt stykke tid.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/Initialization_timing.png}
+  \caption{Fra datablad om hvordan sensor skal initialiseres.}
+  \label{sensor_kom}
+\end{figure}
+
+Fra databladet ses det at 1-wire forbindelsen skal sættes til low i minimum 480$\mu$S
