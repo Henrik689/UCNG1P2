@@ -4719,12 +4719,12 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <plain>
 </plain>
 <instances>
-<instance part="R1" gate="G$1" x="50.8" y="55.88" rot="R90"/>
-<instance part="ARDUINO5V" gate="G$1" x="40.64" y="91.44"/>
-<instance part="U$2" gate="G$1" x="-17.78" y="76.2"/>
+<instance part="R1" gate="G$1" x="33.02" y="55.88" rot="R90"/>
+<instance part="ARDUINO5V" gate="G$1" x="17.78" y="78.74"/>
+<instance part="U$2" gate="G$1" x="-17.78" y="66.04"/>
 <instance part="R2" gate="G$1" x="0" y="60.96" rot="R90"/>
-<instance part="PCB1" gate="G$1" x="25.4" y="2.54"/>
-<instance part="U$1" gate="G$1" x="73.66" y="53.34"/>
+<instance part="PCB1" gate="G$1" x="25.4" y="12.7"/>
+<instance part="U$1" gate="G$1" x="55.88" y="53.34"/>
 </instances>
 <busses>
 </busses>
@@ -4732,33 +4732,33 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <net name="VDD" class="0">
 <segment>
 <pinref part="ARDUINO5V" gate="G$1" pin="VDD"/>
-<wire x1="40.64" y1="88.9" x2="0" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="0" y1="88.9" x2="-27.94" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="-27.94" y1="88.9" x2="-27.94" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="VCC"/>
-<wire x1="-27.94" y1="63.5" x2="-20.32" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="0" y1="76.2" x2="-27.94" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="76.2" x2="-27.94" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="40.64" y1="88.9" x2="50.8" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="88.9" x2="50.8" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="76.2" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="76.2" x2="33.02" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="0" y1="66.04" x2="0" y2="88.9" width="0.1524" layer="91"/>
-<junction x="0" y="88.9"/>
+<wire x1="0" y1="66.04" x2="0" y2="76.2" width="0.1524" layer="91"/>
+<junction x="0" y="76.2"/>
+<wire x1="45.72" y1="60.96" x2="33.02" y2="60.96" width="0.1524" layer="91"/>
+<junction x="33.02" y="60.96"/>
+<pinref part="U$2" gate="G$1" pin="VCC"/>
+<wire x1="-27.94" y1="50.8" x2="-20.32" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="50.8" x2="-20.32" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="60.96" x2="45.72" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
-<wire x1="71.12" y1="45.72" x2="71.12" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="60.96" x2="63.5" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="45.72" x2="71.12" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="60.96" x2="50.8" y2="60.96" width="0.1524" layer="91"/>
-<junction x="50.8" y="60.96"/>
+<wire x1="45.72" y1="48.26" x2="53.34" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="DATA"/>
-<wire x1="-17.78" y1="63.5" x2="-17.78" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="53.34" x2="-17.78" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="3"/>
 <wire x1="-17.78" y1="50.8" x2="0" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="0" y1="50.8" x2="20.32" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="50.8" x2="20.32" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="50.8" x2="20.32" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="0" y1="55.88" x2="0" y2="50.8" width="0.1524" layer="91"/>
 <junction x="0" y="50.8"/>
@@ -4767,32 +4767,32 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <net name="N$4" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
-<wire x1="76.2" y1="40.64" x2="76.2" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="40.64" x2="96.52" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="40.64" x2="96.52" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="43.18" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="43.18" x2="91.44" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="43.18" x2="91.44" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="GND."/>
-<wire x1="96.52" y1="-33.02" x2="5.08" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="-33.02" x2="5.08" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-20.32" x2="5.08" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="-20.32" x2="5.08" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="PCB1" gate="G$1" pin="GND"/>
-<wire x1="-12.7" y1="63.5" x2="-12.7" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="53.34" x2="-12.7" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="GND"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
-<wire x1="22.86" y1="50.8" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="50.8" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="2"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="43.18" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="43.18" x2="33.02" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="50.8" x2="33.02" y2="50.8" width="0.1524" layer="91"/>
+<junction x="33.02" y="50.8"/>
 <pinref part="U$1" gate="G$1" pin="DQ"/>
-<wire x1="50.8" y1="43.18" x2="73.66" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="43.18" x2="73.66" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="50.8" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
-<junction x="50.8" y="50.8"/>
+<wire x1="33.02" y1="43.18" x2="55.88" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="43.18" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
