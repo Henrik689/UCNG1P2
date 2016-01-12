@@ -1,15 +1,12 @@
 \section{Sensor}
-Sensoren som bliver beskrevet i hardware afsnittet skal kommunikere med arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_kom} ses et overblik over funktioner gruppen har lavet, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ved at anvende databladet hvor det er at der skal 3 trin til for at aflæse sensoren, som er:
-
-\begin{enumerate}
-   \item[•]Step 1. Initialization
-   \item[•]Step 2. ROM Command (followed by any required data exchange)
-   \item[•]Step 3. DS18B20 Function Command (followed by any required data exchange)
-\end{enumerate}
+Sensoren som bliver beskrevet i hardware afsnittet skal kommunikere med arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_kom} ses et overblik over funktioner gruppen har lavet, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ved at anvende databladet hvor det ses at tre trin skal følges til punkt og prikke for at kunne tilgå sensoren. De tre trin er en initialization, ROM command of function command.
+\\
+\\
+I databladet ses et stort flowchart over de forskellige måde sensoren kan tilgåes, ud fra denne har vi konstrueret en mindre version for det minimum vi skal bruge for at kunne tilgå sensoren. Denne kan ses på figur 
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/ds18b20_sensor_communication.png}
+  \includegraphics[width=0.8\textwidth]{figures/sensor_communication.png}
   \caption{Kommunikation med sensor.}
   \label{sensor_kom}
 \end{figure}
