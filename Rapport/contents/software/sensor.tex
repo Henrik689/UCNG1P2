@@ -26,7 +26,7 @@ Initialisering af sensoren gøres ved at sætte 1-wire forbindelsen til sensorse
   \label{sensor_kom}
 \end{figure}
 
-Fra databladet ses det at 1-wire forbindelsen skal have en reset pulse i minimum 480$\mu$S og en presence pulse i 60 til 240$\mu$S. Dette gøres ved at sende et low signal som reset pulse og derefter sætte forbindelsen i tri-state og pull-up modstanden trækker den høj. 
+Fra databladet ses det at 1-wire forbindelsen skal have en reset pulse i minimum 480$\mu$S og en presence pulse i 60 til 240$\mu$S. Dette gøres ved at sende et low signal som reset pulse og derefter sætte forbindelsen i tri-state og pull-up modstanden trækker signalet højt. 
 
 I koden gøres dette ved at bruge digitalWrite til low i kombination med et delay på 500$\mu$S. Derefter sættes pinMode til input og et delay på 500$\mu$S anvendes igen. Dette kan ses på figur \ref{sensor_kode}.
 
