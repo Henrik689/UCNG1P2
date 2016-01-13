@@ -3,26 +3,16 @@ I dette afsnit diskuteres forskellige valg af sensorer, deres specifikationer og
 
 \subsubsection{Kriterier for valg af sensor:} 
 \begin{enumerate}
-	\item[•]Digital eller analog
-	    \begin{enumerate}
-	        \item[-]Digital er nemmere at forbinde i forhold til analog.
-	        \item[-]En analog sensor kan blive påvirket af kredsløbet.
-	    \end{enumerate}	
-	
+	\item[•]Digital eller analog		
 	\item[•]Præcision på sensoren 
-	\item[•]Måleafstand
-		\begin{enumerate}
-			\item[-]Fra 5 - 20 grader celcius. Reference: Ib Helmer Nielsen
-		\end{enumerate}	
+	\item[•]Måleafstand			
 	\item[•]Driftsspænding
 	\item[•]Pris
 \end{enumerate} 
 
-I forbindelse med kriterierne sat for valg af sensor samt kravene i kravspecifikationen er temperatur sensor DALLAS18b20 (DS18b20) valgt. Alle sensorer i tabel 3.1 er digitale hvoraf dem, kun DS18b20 kan monteres ved hjælp af Tht (Through hole technology) hvilket kan være en fordel under montering.  
+I forbindelse med kriterierne sat for valg af sensor samt kravene i kravspecifikationen er temperatur sensor DALLAS18b20 (DS18b20) valgt. Alle sensorer i tabel 3.1 er digitale hvoraf dem, kun DS18b20 kan monteres ved hjælp af Tht (Through hole technology). Dette kan være en fordel under montering. De digitale sensorer vist i nedenstående tabel er valgt fordi de er nemmere at forbinde i forhold til analoge sensorer som kan påvirkes af kredsløbet.
 
-Denne i kontrast de resterende vist i tabel 3.1 besidder den mest nøjagtige præcision samt opfylder kravene i de førnævnte kriterier.   
-
-
+ 
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|l|l|}
@@ -38,6 +28,25 @@ Driftsspænding & 3,0 V til 3,6 V & 3,0 V til 3,6 V & 3,0 V til 3,6 V & 3,0 V ti
 \caption{Tabel over mulige valg af sensorer}
 \label{sensor_tabel}
 \end{table}
+\newpage
+  
+
+DS18b20 i kontrast til de resterende vist i tabel 3.1 besidder den mest nøjagtige præcision samt opfylder kravene i kravspecifikationen med en måleafstand på 0-25$^{\circ}$ C. \newline
+Ds18b20 er en digital temperatur sensor som sender målinger over 9-12 bit. Sensoren har en driftstemperatur mellem -55-125$^{\circ}$ og har en præcisions temperatur på $\pm$0,5$^{\circ}$C ved -10 til +85$^{\circ}$. Sensoren kommunikere via en 1-Wire bus forbindelse som kun kræver en enkelt data forbindelse for at kommunikere med mikroprocessoren. Denne ene data forbinelse kan samtidig anvendes som strømforsyning til sensoren. Dette forstås som "parasite power". Dette muliggør også for ikke at anvende ekstern strømforsyning. 
+Denne ene forbindelse gør den ideél netop i videreudviklingen af produktet hvis flere sensorer skal forbindes til samme ledning.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figures/ds18b20-pinout.jpg}
+  \caption{Tegning over DS18b20 temperatur sensor.}
+  \label{tempgraf_eksempel1}
+\end{figure} 
+
+
+   
+
+
+
 
 
 
