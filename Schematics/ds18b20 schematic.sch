@@ -3531,39 +3531,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="supply2">
-<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
-GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
-Please keep in mind, that these devices are necessary for the
-automatic wiring of the supply signals.&lt;p&gt;
-The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
-In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="VDD">
-<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
-<text x="-1.905" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="VDD" prefix="SUPPLY">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="VDD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="DHT11">
 <packages>
 <package name="DHT11-PION.">
@@ -4708,7 +4675,6 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 </classes>
 <parts>
 <part name="R1" library="resistor" deviceset="R-EU_" device="0204/7" value="4K7"/>
-<part name="ARDUINO5V" library="supply2" deviceset="VDD" device=""/>
 <part name="U$2" library="DHT11" deviceset="DHT11-PION." device=""/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0204/7" value="5K"/>
 <part name="PCB1" library="E14_Arduino" deviceset="ARDUINO_MEGA" device=""/>
@@ -4720,7 +4686,6 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 </plain>
 <instances>
 <instance part="R1" gate="G$1" x="33.02" y="55.88" rot="R90"/>
-<instance part="ARDUINO5V" gate="G$1" x="17.78" y="78.74"/>
 <instance part="U$2" gate="G$1" x="-17.78" y="66.04"/>
 <instance part="R2" gate="G$1" x="0" y="60.96" rot="R90"/>
 <instance part="PCB1" gate="G$1" x="25.4" y="12.7"/>
@@ -4729,29 +4694,6 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <busses>
 </busses>
 <nets>
-<net name="VDD" class="0">
-<segment>
-<pinref part="ARDUINO5V" gate="G$1" pin="VDD"/>
-<wire x1="17.78" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="0" y1="76.2" x2="-27.94" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-27.94" y1="76.2" x2="-27.94" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="76.2" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="76.2" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="68.58" x2="33.02" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="0" y1="66.04" x2="0" y2="76.2" width="0.1524" layer="91"/>
-<junction x="0" y="76.2"/>
-<pinref part="U$2" gate="G$1" pin="VCC"/>
-<wire x1="-27.94" y1="50.8" x2="-20.32" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="50.8" x2="-20.32" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="VCC"/>
-<wire x1="58.42" y1="50.8" x2="63.5" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="50.8" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
-<junction x="33.02" y="68.58"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="DATA"/>
@@ -4794,6 +4736,33 @@ Each DS18B20 has a unique 64-bit serial code, which allows multiple DS18B20s to 
 <pinref part="U$1" gate="G$1" pin="DQ"/>
 <wire x1="33.02" y1="45.72" x2="55.88" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="45.72" x2="55.88" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<wire x1="33.02" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="0" y1="76.2" x2="-27.94" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="76.2" x2="-27.94" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="76.2" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="68.58" x2="33.02" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="0" y1="66.04" x2="0" y2="76.2" width="0.1524" layer="91"/>
+<junction x="0" y="76.2"/>
+<pinref part="U$2" gate="G$1" pin="VCC"/>
+<wire x1="-27.94" y1="50.8" x2="-20.32" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="50.8" x2="-20.32" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VCC"/>
+<wire x1="58.42" y1="50.8" x2="63.5" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="50.8" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+<junction x="33.02" y="68.58"/>
+<wire x1="-27.94" y1="76.2" x2="-45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="76.2" x2="-45.72" y2="-22.86" width="0.1524" layer="91"/>
+<junction x="-27.94" y="76.2"/>
+<pinref part="PCB1" gate="G$1" pin="5V"/>
+<wire x1="-45.72" y1="-22.86" x2="0" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="0" y1="-22.86" x2="0" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
