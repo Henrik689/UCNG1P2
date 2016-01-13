@@ -10,7 +10,7 @@ I dette afsnit diskuteres forskellige valg af sensorer, deres specifikationer og
 	\item[•]Pris
 \end{enumerate} 
 
-I forbindelse med kriterierne sat for valg af sensor samt kravene i kravspecifikationen er temperatur sensor DALLAS18b20 (DS18b20) valgt. Alle sensorer i tabel 3.1 er digitale hvoraf dem, kun DS18b20 kan monteres ved hjælp af Tht (Through hole technology). Dette kan være en fordel under montering. De digitale sensorer vist i nedenstående tabel er valgt fordi de er nemmere at forbinde i forhold til analoge sensorer som kan påvirkes af kredsløbet.
+I forbindelse med kriterierne sat for valg af sensor samt kravene i kravspecifikationen er temperatur sensor DALLAS18b20 (DS18b20) valgt til måling af vandrør. Alle sensorer i tabel 3.1 er digitale hvoraf dem, kun DS18b20 kan monteres ved hjælp af Tht (Through hole technology). Dette kan være en fordel under montering. De digitale sensorer vist i nedenstående tabel er valgt fordi de er nemmere at forbinde i forhold til analoge sensorer som kan påvirkes af kredsløbet.
 
  
 \begin{table}[h]
@@ -40,10 +40,18 @@ Denne ene forbindelse gør den ideél netop i videreudviklingen af produktet hvi
   \centering
   \includegraphics[width=0.3\textwidth]{figures/ds18b20-pinout.jpg}
   \caption{Tegning over DS18b20 temperatur sensor.}
-  \label{tempgraf_eksempel1}
+  \label{ds18b20_pins}
 \end{figure} 
 
+Til målingen af rum temperaturen er DHT11 valgt. Det er en digital sensor som måler både temperatur samt ændringer i luftfugtigheden. Denne sensor kræver en strømtilførsel på 3-5 V. \newline
+Den kan måle temperaturændringer inden for 0-50$^{\circ}$ med en præcision på $\pm$2$^{\circ}$C, samt måle luftfugtighedsændringer inden for 20-80\% fugtighed med en præcision på 5\%. 
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figures/DHT11.jpg}
+  \caption{DHT11 temperatur og luftfugtigheds sensor.}
+  \label{dht11_billede}
+\end{figure} 
    
 
 
