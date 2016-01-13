@@ -1,11 +1,11 @@
 \subsection{Sensor}
-I dette afsnit diskuteres forskellige valg af sensorer, deres specifikationer, og der dannes grundlag for valg af sensor.
-\\\\
-Kriterier for valg af sensor:
+I dette afsnit diskuteres forskellige valg af sensorer, deres specifikationer og der dannes grundlag for valg af sensor. \newline
+
+\subsubsection{Kriterier for valg af sensor:} 
 \begin{enumerate}
 	\item[•]Digital eller analog
 	    \begin{enumerate}
-	        \item[-]Digital er nemmere at connecte i forhold til analog.
+	        \item[-]Digital er nemmere at forbinde i forhold til analog.
 	        \item[-]En analog sensor kan blive påvirket af kredsløbet.
 	    \end{enumerate}	
 	
@@ -14,9 +14,15 @@ Kriterier for valg af sensor:
 		\begin{enumerate}
 			\item[-]Fra 5 - 20 grader celcius. Reference: Ib Helmer Nielsen
 		\end{enumerate}	
+	\item[•]Driftsspænding
 	\item[•]Pris
-	\item[•]Driftsspænding 	
-\end{enumerate}
+\end{enumerate} 
+
+I forbindelse med kriterierne sat for valg af sensor samt kravene i kravspecifikationen er temperatur sensor DALLAS18b20 (DS18b20) valgt. Alle sensorer i tabel 3.1 er digitale hvoraf dem, kun DS18b20 kan monteres ved hjælp af Tht (Through hole technology) hvilket kan være en fordel under montering.  
+
+Denne i kontrast de resterende vist i tabel 3.1 besidder den mest nøjagtige præcision samt opfylder kravene i de førnævnte kriterier.   
+
+
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|l|l|}
