@@ -1,12 +1,13 @@
 \section{Sensor}
-Sensoren, som bliver beskrevet i hardwareafsnittet, skal kommunikere med arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_kom} ses et overblik over funktioner gruppen har lavet, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ud fra databladet, hvor det ses at tre trin skal følges til præcist for at tilgå sensoren. De tre trin er en initialisering(initialization), ROM command og function command.
-\subsection{1-wire}
+\fxnote{skriv noget intro}
+
+
+\subsection{1-Wire}
 %https://www.maximintegrated.com/en/products/digital/one-wire.html
-Sensoren benytter en 1-wire forbindelse til at kommunikere med mikroprocessoren. 1-wire er en teknologi hvor en  enkelt serial forbindelse fungere som data forbindelse i begge retninger. 
+Sensoren benytter en 1-Wire forbindelse til at kommunikere med mikroprocessoren. 1-Wire er en teknologi hvor en  enkelt serial forbindelse fungere som data forbindelse i begge retninger. 
 
 Dette gøres ved at forbinde dataforbindelsen på sensoren med mikroprocessoren, og en pull-up modstand forbundes til 5 V som det ses på figur \ref{one_wire_schematic}. 
 
-1-wire fungere lidt anderledes af en normal data forbindelse. Data bliver læst som tiden hvor der er et 0 V signal, og pull-op modstanden vil så trække signalet høj hver gang der intet signal er.
 
 \begin{figure}[h!]
   \centering
@@ -15,12 +16,18 @@ Dette gøres ved at forbinde dataforbindelsen på sensoren med mikroprocessoren,
   \label{one_wire_schematic}
 \end{figure}
 
+1-wire fungere lidt anderledes af en normal data forbindelse. Data bliver læst som tiden hvor der er et 0 V signal, og pull-op modstanden vil så trække signalet høj hver gang der intet signal er.
+
 Der vil ligge 5 V på dataforbindelsen indtil enten sensor eller mikroprocessor begynder at sende 0 V, hvor den anden enhed så kan registrer hvor længe der ligge 0 V på dataforbindelsen. Tidslængden af 0 V signalet afgører om den enheder der modtager skal opfatte signalet som et 0 eller 1. Hvis der skal skrives et 0 udsendes der et 0 V signal i 60 $\mu$S og hvis der skal skrives 1 sendes der 0 V i 15 $\mu$S. 
 
 \newpage
 
 \subsection{Overblik}
+Sensoren, som bliver beskrevet i hardwareafsnittet, skal kommunikere med arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_kom} ses et overblik over funktioner gruppen har lavet, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ud fra databladet, hvor det ses at tre trin skal følges til præcist for at tilgå sensoren. De tre trin er en initialisering(initialization), ROM command og function command.
+
 I databladet til ds18b20 sensoren ses et flowchart der viser hvordan mikroprocessoren kommunikerer med sensoren og hvordan den tilgåer de funktioner som sensoren kan udføre. Ud fra flowchartet har gruppen konstrueret en mindre version, som indeholder de minimale funktioner der skal anvendes for at tage en temperatur måling. Desse funktioner ses på figur \ref{sensor_kom}.
+
+
 
 \begin{figure}[h!]
   \centering
