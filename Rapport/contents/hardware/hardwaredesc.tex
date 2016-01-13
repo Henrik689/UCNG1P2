@@ -1,8 +1,9 @@
 \section{Hardware struktur og funktionalitet}
-Til mikroprocessoren er tilsluttet to sensorer, der hver måler en forskellig temperatur. Den ene er sat direkte på vandledningen, og måler temperaturen på røret, mens den anden sensor sidder så den kan måle temperaturen og luftfugtigheden i rummet - ca. 10 cm fra røret.\newline
-Microprocessoren tilspørger sensorerne samtidig og får begge temperaturer samt luftfugtigheden i rummet, og sender disse data til en modtager, en gang hvert 10. sekund.\newline
-Serveren eller computeren der modtager data står herefter for udregningen af forskellen på temperaturerne og, ud fra denne, tegning af graf eller visning af data som tekst i terminalen.
-\\\\
+Til mikroprocessoren er tilsluttet to sensorer som hver måler en forskellig temperatur. Den ene er i monteret så der skabes kontakt til vandledningen, og måler temperaturen på røret. Den anden sidder momteret monteret ca. 10 cm. fra røret, for at måle temperaturen samt luftfugtigheden i rummet.\newline
+Mikroprocessoren anmoder hver 10 sekund om temperaturen fra begge sensorer samtidig og får temperaturer samt luftfugtigheden i rummet sendt tilbage. 
+Mikroprocessoren står herefter for udregningen af temperatur differencen. Herefter
+sendes dataen til en computer.\newline
+
 
 \fxnote{beskriv diagrammet og giv et overblik over hardware strukturen}
 
