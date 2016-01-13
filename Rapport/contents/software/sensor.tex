@@ -1,7 +1,9 @@
 \section{Sensor}
 Sensoren, som bliver beskrevet i hardwareafsnittet, skal kommunikere med arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_kom} ses et overblik over funktioner gruppen har lavet, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ud fra databladet, hvor det ses at tre trin skal følges til præcist for at tilgå sensoren. De tre trin er en initialisering(initialization), ROM command og function command.
-\\
-\\
+\subsection{1-wire}
+
+
+\subsection{Overblik}
 I databladet ses et flowchart over hvordan mikroprocessoren opnår adgang til sensoren kan tilgås og funktioner den kan udføre. Ud fra dette flowchart har gruppen konstrueret en mindre version, som indeholder de minimale funktioner der skal anvendes for at tilgå sensoren, og aflæse denne. Dette ses på figur \ref{sensor_kom}.
 
 \begin{figure}[h!]
