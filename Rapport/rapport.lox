@@ -1,6 +1,8 @@
 \contentsline {fixme}{Note: inds\IeC {\ae }t sideantal}{i}{figure.caption.1}
 \contentsline {fixme}{Note: inds\IeC {\ae }t sideantal for appendiks}{i}{figure.caption.1}
 \contentsline {fixme}{Note: inds\IeC {\ae }t dato for f\IeC {\ae }rdigg\IeC {\o }relse}{i}{figure.caption.1}
+\contentsline {fixme}{Note: ret figur, ingen grund til den er s\IeC {\r a} h\IeC {\o }j n\IeC {\r a}r vi kun har 2 punkter p\IeC {\r a} x aksen}{1}{figure.caption.5}
+\contentsline {fixme}{Note: ret figur, ingen grund til den er s\IeC {\r a} h\IeC {\o }j n\IeC {\r a}r vi kun har 2 punkter p\IeC {\r a} x aksen}{2}{figure.caption.6}
 \contentsline {fixme}{Note: pr\IeC {\ae }cision p\IeC {\r a} sensor}{4}{section.3.2}
 \contentsline {fixme}{Note: beskriv diagrammet og giv et overblik over hardware strukturen}{4}{section.3.3}
 \contentsline {fixme}{Note: fiks billede position}{5}{figure.caption.9}
@@ -11,11 +13,11 @@
 \contentsline {fixme}{Note: rediger figur 4.1}{10}{section.4.2}
 \contentsline {fixme}{Note: softwarekrav ucn arduino board. Der er argumenteret p\IeC {\r a} dette tidspunkt hvorfor det ikke anvendes i hardware.}{10}{section.4.2}
 \contentsline {fixme}{Note: skriv noget intro}{11}{section.4.3}
-\contentsline {fixme}{Note: lav LSB i glossary}{11}{figure.caption.16}
-\contentsline {fixme}{Note: ret st\IeC {\o }rrelse til p\IeC {\r a} alle billeder(noget der skal g\IeC {\o }res til sidst!)}{13}{figure.caption.18}
-\contentsline {fixme}{Note: evt noget afslutning p\IeC {\r a} dette underafsnit?}{14}{figure.caption.20}
-\contentsline {fixme}{Note: set firkant eller noget rundt om alle vores kodeeksempler s\IeC {\r a} de ikke g\IeC {\r a}r i et med teksten omkring}{14}{figure.caption.21}
-\contentsline {fixme}{Note: rediger flowchart s\IeC {\r a} s\IeC {\r a} pilen i start funktionen fra start og ikke imod start.}{15}{figure.caption.22}
+\contentsline {fixme}{Note: lav LSB i glossary}{11}{figure.caption.17}
+\contentsline {fixme}{Note: ret st\IeC {\o }rrelse til p\IeC {\r a} alle billeder(noget der skal g\IeC {\o }res til sidst!)}{13}{figure.caption.19}
+\contentsline {fixme}{Note: evt noget afslutning p\IeC {\r a} dette underafsnit?}{14}{figure.caption.21}
+\contentsline {fixme}{Note: set firkant eller noget rundt om alle vores kodeeksempler s\IeC {\r a} de ikke g\IeC {\r a}r i et med teksten omkring}{14}{figure.caption.22}
+\contentsline {fixme}{Note: rediger flowchart s\IeC {\r a} s\IeC {\r a} pilen i start funktionen fra start og ikke imod start.}{15}{figure.caption.23}
 \contentsline {fixme}{Note: skriv afsnit om hvordan rumtemperaturen bliver m\IeC {\r a}lt}{15}{subsection.4.4.1}
 \contentsline {fixme}{Note: skriv afsnit om hvordan r\IeC {\o }rtemperaturen bliver m\IeC {\r a}lt}{15}{subsection.4.4.2}
 \contentsline {fixme}{Note: skriv afsnit om hvordan vi sammenligner temperaturerne, og hvorfor det er brugbart}{15}{subsection.4.4.3}
@@ -28,5 +30,5 @@
 \contentsline {fixme}{Note: Inds\IeC {\ae }t milesten}{20}{subsection.8.1.3}
 \contentsline {fixme}{Note: Inds\IeC {\ae }t budget}{20}{subsection.8.1.5}
 \contentsline {fixme}{Note: f\IeC {\ae }rdigg\IeC {\o }r kildeliste}{21}{chapter.9}
-\contentsline {fixme}{Note: inds\IeC {\ae }t figurliste, eller slet siden helt}{22}{section*.23}
-\contentsline {fixme}{Note: inds\IeC {\ae }t tabelliste, eller slet siden helt}{23}{section*.24}
+\contentsline {fixme}{Note: inds\IeC {\ae }t figurliste, eller slet siden helt}{22}{section*.24}
+\contentsline {fixme}{Note: inds\IeC {\ae }t tabelliste, eller slet siden helt}{23}{section*.25}
