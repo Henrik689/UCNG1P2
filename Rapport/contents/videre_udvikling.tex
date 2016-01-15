@@ -5,10 +5,45 @@ Den første del af videre udviklingen består i at gøre systemet i stand til ik
 
 \subsection{Arduino [Hello world]\fixme{mangler bedre titel}}
 For at gøre systemet i stand til at kunne logge de målte og beregnede data er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at finde arduinoen med internettet, samt der er blevet skrevet kode der gør det muligt for arduinoen at lægge data op på en SQL database på nettet.
-\img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.6}
+\img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.7}\newline
 program flowet med brugen af ethernet shieldet følger det samme flow vist i figur \ref{fase1flow}
+med undtagelse af det sidste led værende "Print til terminal", i stedet bliver der nu oprettet en forbindelse til en PHP side på nettet hvor efter arduinoen sender en HTTP POST pakke til siden, derved ser det nye flow således sådan ud:
+\img{figures/fase2software2.png}{Ethernet flowchart}{ethernetflowchart}{0.8}\newline
+Efter POST pakken er blevet sendt bliver den læset af PHP siden som derefter splitter pakken i de individuelle data punkter som er:
+\begin{enumerate}
+	\item[•]Node ID
+	\item[•]Rør temperatur
+	\item[•]Rum temperatur
+	\item[•]Rum luft fugtighed
+\end{enumerate}
+Som det sidste forbinder PHP siden så til en SQL database og sender dataen op til den og lukker forbindelsen.
+\begin{figure}[!ht]
+	\begin{lstlisting}
+<?php
+include("../includes/config.php");
+$sql = $con->prepare("INSERT INTO data(node_unit, node_pipetemp, node_hum, node_ambitemp, node_time)VALUES(?, ?, ?, ?, ?)");
+$sql->bind_param("sssss", $node_unit, $node_pipetemp, $node_hum, $node_ambitemp, $node_time);
+
+$node_data = $_GET['data'];
+$node_dataArray = explode(',', $node_data);
+
+$node_unit = $node_dataArray[0];
+$node_pipetemp = $node_dataArray[1];
+$node_hum = $node_dataArray[3];
+$node_ambitemp = $node_dataArray[2];
+date_default_timezone_set("Europe/Copenhagen"); 
+$node_time = time(); 
+$sql->execute();
+$sql->close();
+?>
+\end{lstlisting}
+\caption{PHP kode til SQL logning}
+\label{phpsql}
+\end{figure}
+
 
 \subsection{GUI hjemmeside}
+Med tilføjelsen af SQL data
 \section{Lejligheds løsning}
 \subsection{Radio moduler}
 \subsection{Mesh netværk}
