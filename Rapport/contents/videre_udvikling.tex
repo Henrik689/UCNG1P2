@@ -9,7 +9,7 @@ For at gøre systemet i stand til at kunne logge de målte og beregnede data er 
 program flowet med brugen af ethernet shieldet følger det samme flow vist i figur \ref{fase1flow}
 med undtagelse af det sidste led værende "Print til terminal", i stedet bliver der nu oprettet en forbindelse til en PHP side på nettet hvor efter arduinoen sender en HTTP POST pakke til siden, derved ser det nye flow således sådan ud:
 \img{figures/fase2software2.png}{Ethernet flowchart}{ethernetflowchart}{0.8}\newline
-Efter POST pakken er blevet sendt bliver den læset af PHP siden som derefter splitter pakken i de individuelle data punkter som er:
+Efter POST pakken er blevet sendt bliver den læst af PHP siden som derefter splitter pakken i de individuelle data punkter som er:
 \begin{enumerate}
 	\item[•]Node ID
 	\item[•]Rør temperatur
@@ -41,9 +41,21 @@ $sql->close();
 \label{phpsql}
 \end{figure}
 
-
 \subsection{GUI hjemmeside}
-Med tilføjelsen af SQL data
+Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrerer det loggede data til forbrugeren af systemet.
+Der er som en del af videre udviklingen blevet lavet et simpelt interface bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og javascript samt HTML.
+\img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
+Ideen med hjemmesiden er at gøre det nemt for forbrugeren at monitorer hvordan det forløber med det data der kommer ind fra de enheder der er forbundet til den, samt at det er i stand til at kunne vise hvis der skulle være beskeder fra systemet.
+
 \section{Lejligheds løsning}
+Som det sidste led i videre udviklings processen er der blevet kigget på hvordan system kan blive videre bygget til at kunne fungere som en samlet enheds i et lejligheds kompleks. For at gøre systemet mere flexibelt og modulært er der blevet fokuseret på at forbinde måleenheder men en master enhed via radio moduler. målenhederne snakket med hinanden og masteren intern over radio enhederne og master modtager det målte data fra måleenhederne og sender det op til SQL serveren til logning.
+
 \subsection{Radio moduler}
+Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radio modulet NRF04L01+ fra Nordic Semiconductors.
+\img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
+Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig som standard af UDP og TCP protokoller som f.eks WiFi gør. 
+Kommnukationen mellem mikrocontrolleren sker via en seriel SPI forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
+
 \subsection{Mesh netværk}
+Radio modulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
+Den første og mest anvendte metode er P2P (Point 2 Point).
