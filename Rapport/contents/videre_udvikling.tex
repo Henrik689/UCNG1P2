@@ -57,5 +57,18 @@ Dette er en lille og meget billig radio modul som kommunikere med en båndbredde
 Kommnukationen mellem mikrocontrolleren sker via en seriel SPI forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Mesh netværk}
+\subsubsection*{P2P}
 Radio modulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
 Den første og mest anvendte metode er P2P (Point 2 Point).
+\img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
+P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om en måleenhed og en master der skulle kommunikere trådløst, dette er dog langt fra ideelt til en flexibel løsning som det ønskes at anvende disse radio moduler til hvor der er flere en 1 måleenhed.
+
+\subsubsection*{Stjerne netværk}
+Den næste mulige netværk konfiguration er er bedst kendt som et stjerne netværk. denne type netværk er en viderebygning af tidligere nævnte P2P model, da man her, i stedet for kun har to enheder der kan kommunikere med hinanden, har en master enhed der kan kommunikere med mange enheder på engang. Dette er en klar fordel da man nu i forhold til at, skulle det anvendes til lejlighedsløsningen, har mulighed for at have så mange enheder der er brug for som så kan måle de data punkter de skal, for at så derved at kunne sende det til masteren som så kan sende det videre.
+\img{figures/starnetwork.png}{Star netværks diagram}{starnetworkdiagram}{0.6}\newline
+Begrænsningen ved at anvende et stjerne netværk til lejlighedsløsningen ligger i at alle enheder skal kunne have radio forbindelse til masteren, hvilket kan være en meget stor udfordring i lejligheds komplekser, da der her er mange vægge og andre signal forstyrrende elementer signalet skal vandre igennem for at nå masteren.
+
+\subsubsection*{Mesh netværk}
+Signal problemet som opstår ved at anvende et stjerne netværk kan løses ved at anvende en netværks type bedst kendet som et mesh netværk.
+Et mest netværk er på nogle måder en videreudvikling at stjerne netværk, hvor man nu, i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
+\img{figures/meshnetwork.png}{Mesh netværks diagram}{meshnetworkdiagram}{1}
