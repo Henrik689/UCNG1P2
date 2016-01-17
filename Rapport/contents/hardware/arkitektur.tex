@@ -1,3 +1,13 @@
 \subsection{Arkitektur}
-\fxnote{Indsæt schematics over fase 1 + 3}
 
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=1\textwidth]{figures/phase1_schematic.png}
+ \caption{Skematik over mikroprocessor og sensorer.}
+ \label{p1_skema}
+\end{figure}
+
+Ovenover er vist figur \ref{p1_skema}, som giver et overblik over skemaet af det elektroniske kredsløb brugt til produktet.
+Begge sensorer fungerer gennem 1-Wire og deres datalinie er derfor direkte forbundet til mikroprocessoren, og strømtilførslen gennem en modstand.
+
+Til DS18B20 er der valgt at gå væk fra Parasite Power Mode(PPM)\footnote{Sensoren kan modtage strøm gennem datalinien}, da det blev valgt at bruge sensorens egen temperatur konversion, hvilket ville bruge mere strøm end PPM kan tilføre.
