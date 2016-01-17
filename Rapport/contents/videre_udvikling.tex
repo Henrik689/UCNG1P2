@@ -53,7 +53,7 @@ Som det sidste led i videre udviklings processen er der blevet kigget på hvorda
 \subsection{Radio moduler}
 Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radio modulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
-Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig som standard af UDP og TCP protokoller som f.eks WiFi gør. 
+Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig ikke som standard af UDP og TCP protokoller som f.eks WiFi gør. 
 Kommnukationen mellem mikrocontrolleren sker via en seriel SPI forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Mesh netværk}
@@ -69,6 +69,9 @@ Den næste mulige netværk konfiguration er er bedst kendt som et stjerne netvæ
 Begrænsningen ved at anvende et stjerne netværk til lejlighedsløsningen ligger i at alle enheder skal kunne have radio forbindelse til masteren, hvilket kan være en meget stor udfordring i lejligheds komplekser, da der her er mange vægge og andre signal forstyrrende elementer signalet skal vandre igennem for at nå masteren.
 
 \subsubsection*{Mesh netværk}
-Signal problemet som opstår ved at anvende et stjerne netværk kan løses ved at anvende en netværks type bedst kendet som et mesh netværk.
-Et mest netværk er på nogle måder en videreudvikling at stjerne netværk, hvor man nu, i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
+Signal problemet som opstår ved at anvende et stjerne netværk kan løses ved at anvende en netværks type bedst kendt som et mesh netværk.
+Et mesh netværk er på nogle måder en videreudvikling af et stjerne netværk, hvor man nu, i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
 \img{figures/meshnetwork.png}{Mesh netværks diagram}{meshnetworkdiagram}{1}
+Med mellemstationerne i mesh netværket betyder det at det nu er muligt at sprede en netværk over en meget stor afstand da man ikke længere er afhængig af at alle noderne skal kunne snakke med masteren direkte, men derimod skal alle enheder bare kunne se en anden enhed. Dette er en ideel løsning til lejlighedsløsningen da man nu både har muligheden for at bruge det i en hel lejligheds blok så længe der bare er enheder spredt jævnt ud i bygningen så der er fuld dækning, samt at det muliggør kommunikation imellem en meget stor mængde radio moduler. Med disse fordele er det valgt at bruge denne netværks model til at udvikle lejligheds løsningen.
+
+\section{Lejligheds løsningen}
