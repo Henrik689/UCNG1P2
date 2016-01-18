@@ -36,23 +36,20 @@ I koden bliver dette gjort ved at kalde digitalWrite med low som parameter, i ko
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1\textwidth]{figures/Init.png}
+  \fbox{\includegraphics[width=1\textwidth]{figures/Init.png}}
   \caption{Initialisering kode.}
   \label{sensor_kode}
 \end{figure}
-
-\fxnote{evt noget afslutning på dette underafsnit?}
 
 \subsection{writeByte()}
 For at sende kommandoer til sensoren er en WriteByte() funktion konstrueret. Den er lavet ud fra samme fremgangsmåde som Initialize() funktionen ved at aflæse en graf der indeholder intervaller, der skal til for at tilgå sensoren.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1\textwidth]{figures/write_byte.png}
+  \fbox{\includegraphics[width=1\textwidth]{figures/write_byte.png}}
   \caption{writeByte() arduino kode.}
   \label{write_byte}
 \end{figure}
-\fxnote{set firkant eller noget rundt om alle vores kodeeksempler så de ikke går i et med teksten omkring}
 Det kode som står under if(), er det kode som anvendes hvis der ønskes at skrive et 1 tal, og det der står under else(), er det der anvedes til at skrive et 0. Dette gøres 8 gange i et for loop, Da sensorens modtager 8 bit af gangen. Hver gang en enkelt bit er kontrolleret, om der står 1 eller 0, vil der blive foretaget et bitshift til højre og den næste bit vil blive kontrolleret. På denne måde kan der skrives til sensoren.
 
 
