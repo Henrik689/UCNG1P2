@@ -1,22 +1,23 @@
-Som et led i arbejd processen med udvikling af systemet er der blevet arbejdet på hvordan det system kan videre udvikles til at have mere funktion i forhold til at dette system skulle anvendes i en virkeligheds situation.
+Som et led i arbejdsprocessen med udvikling af systemet, er der blevet arbejdet på hvordan systemet kan videreudvikles til at have mere funktion i forhold til at dette system skulle anvendes i en virkelig situation.
 
 \section{Data logning}
-Den første del af videre udviklingen består i at gøre systemet i stand til ikke bare at kunne visse de målte data og anden beregning der bliver foretaget, men at logge det over tid så det både kan bruges til at logfører markante ændringer over tid, samt at kunne fremvise det loggede data for en forbruger af systemet.
+Den første del af videreudviklingen består i, at gøre systemet i stand til ikke bare at kunne visse de målte data og anden beregning der bliver foretaget, men at logge det over tid så det både kan bruges til at logføre markante ændringer over tid, samt at kunne fremvise det loggede data for en forbruger af systemet.
 
 \subsection{Arduino ethernet shield}
-For at gøre systemet i stand til at kunne logge de målte og beregnede data er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at finde arduinoen med internettet, samt der er blevet skrevet kode der gør det muligt for arduinoen at lægge data op på en SQL\footnote{Structured Query Language} database på nettet.
+For at gøre systemet i stand til at kunne logge de målte og beregnede data, er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at forbinde Arduinoen med internettet, derudover er der blevet skrevet et stykke kode der gør det muligt for Arduinoen at lægge data op på en SQL\footnote{Structured Query Language} database på nettet.
 \img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.7}\newline
-program flowet med brugen af ethernet shieldet følger det samme flow vist i figur \ref{fase1flow}
-med undtagelse af det sidste led værende "Print til terminal", i stedet bliver der nu oprettet en forbindelse til en PHP side på nettet hvor efter arduinoen sender en HTTP POST pakke til siden, derved ser det nye flow således sådan ud:
+
+Flowet af programmet til brug af ethernet shieldet følger samme flow vist i figur \ref{fase1flow}
+med undtagelse af det sidste led værende "Print til terminal". I stedet bliver der nu oprettet en forbindelse til en PHP side på nettet hvorefter Arduinoen sender en HTTP POST pakke til siden og derved ser det nye flow således ud:
 \img{figures/fase2software2.png}{Ethernet flowchart}{ethernetflowchart}{0.8}\newline
-Efter POST pakken er blevet sendt bliver den læst af PHP siden som derefter splitter pakken i de individuelle data punkter som er:
+Efter POST pakken er blevet sendt, bliver den læst af PHP siden som derefter splitter pakken i de individuelle data punkter som er:
 \begin{enumerate}
 	\item[•]Node ID
 	\item[•]Rør temperatur
 	\item[•]Rum temperatur
 	\item[•]Rum luft fugtighed
 \end{enumerate}
-Som det sidste forbinder PHP siden så til en SQL database og sender dataen op til den og lukker forbindelsen.
+Som det sidste opretter PHP siden en forbindelse til en SQL database og sender dataen til databasen og lukker forbindelsen.
 \begin{figure}[!ht]
 	\begin{lstlisting}
 <?php
@@ -42,35 +43,36 @@ $sql->close();
 \end{figure}
 
 \subsection{GUI hjemmeside}
-Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrerer det loggede data til forbrugeren af systemet.
-Der er som en del af videre udviklingen blevet lavet et simpelt interface bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML\footnote{Hyper Text Markup Language}.
+Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrere det loggede data til forbrugeren af systemet.
+Der er som en del af videreudviklingen blevet lavet et simpelt interface, bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML\footnote{Hyper Text Markup Language}.
 \img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
-Ideen med hjemmesiden er at gøre det nemt for forbrugeren at monitorer hvordan det forløber med det data der kommer ind fra de enheder der er forbundet til den, samt at det er i stand til at kunne vise hvis der skulle være beskeder fra systemet.
+Ideen med hjemmesiden er at gøre det nemt for forbrugeren at overvåge hvordan det forløber med dataen der kommer ind fra de enheder der er forbundet til den, samt at siden er i stand til at kunne vise beskeder fra systemet.
 
 \section{Lejligheds løsning}
-Som det sidste led i videre udviklings processen er der blevet kigget på hvordan system kan blive videre bygget til at kunne fungere som en samlet enheds i et lejligheds kompleks. For at gøre systemet mere flexibelt og modulært er der blevet fokuseret på at forbinde måleenheder men en master enhed via radio moduler. målenhederne snakket med hinanden og masteren intern over radio enhederne og master modtager det målte data fra måleenhederne og sender det op til SQL serveren til logning.
+Som det sidste led i videreudviklingsprocessen, er der blevet kigget på hvordan system kan blive viderebygget til at kunne fungere som en samlet enhed i et lejlighedskompleks. For at gøre systemet mere fleksibelt og modulært er der blevet fokuseret på at forbinde måleenheder med en masterenhed via radiomoduler. Måleenhederne snakker med hinanden og masteren internt gennem radioenhederne og masteren modtager det målte data fra måleenhederne og sender det op til SQL serveren til logning.
 
 \subsection{Radio moduler}
-Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radio modulet NRF04L01+ fra Nordic Semiconductors.
+Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radiomodulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
-Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
+Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
 Kommnukationen mellem mikrocontrolleren sker via en seriel SPI\footnote{Serial Periphial Interface} forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Mesh netværk}
 \subsubsection*{P2P}
-Radio modulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
+Radiomodulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
 Den første og mest anvendte metode er P2P\footnote{Point to Point}.
 \img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
-P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om en måleenhed og en master der skulle kommunikere trådløst, dette er dog langt fra ideelt til en flexibel løsning som det ønskes at anvende disse radio moduler til hvor der er flere end 1 måleenhed.
+P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om én måleenhed og én master der skulle kommunikere trådløst. Dette er dog ikke ideelt til en flexibel løsning hvor det ønskes at anvende disse radiomoduler til et produkt, hvor der er behov for mere end én måleenhed.
 
 \subsubsection*{Stjerne netværk}
-Den næste mulige netværk konfiguration er er bedst kendt som et stjerne netværk. denne type netværk er en viderebygning af tidligere nævnte P2P model, da man her, i stedet for kun har to enheder der kan kommunikere med hinanden, har en master enhed der kan kommunikere med mange enheder på engang. Dette er en klar fordel da man nu i forhold til at, skulle det anvendes til lejlighedsløsningen, har mulighed for at have så mange enheder der er brug for som så kan måle de data punkter de skal, for at så derved at kunne sende det til masteren som så kan sende det videre.
+Den næste mulige netværkskonfiguration  er bedst kendt som et stjernenetværk. Denne type netværk er en viderebygning af tidligere nævnte P2P model, da man her, i stedet for kun at have to enheder der kan kommunikere med hinanden, har én master enhed som kommunikerer med mange enheder på én gang. 
+Dette er en fordel, da det skal anvendes til et lejlighedskompleks. Det skaber mulighed for at lave en modulær løsning, da der kan tilføjes flere enheder.
 \img{figures/starnetwork.png}{Star netværks diagram}{starnetworkdiagram}{0.6}\newline
-Begrænsningen ved at anvende et stjerne netværk til lejlighedsløsningen ligger i at alle enheder skal kunne have radio forbindelse til masteren, hvilket kan være en meget stor udfordring i lejligheds komplekser, da der her er mange vægge og andre signal forstyrrende elementer signalet skal vandre igennem for at nå masteren.
+Begrænsningen ved at anvende et stjernenetværk til lejlighedsløsningen, ligger i at alle enheder skal kunne have radioforbindelse til masteren, hvilket kan være en stor udfordring i lejlighedskomplekser. Udfordringen opstår på grund af forstyrrende elementer som for eksempel vægge og lignende, som signalet skal passere.
 
 \subsubsection*{Mesh netværk}
-Signal problemet som opstår ved at anvende et stjerne netværk kan løses ved at anvende en netværks type bedst kendt som et mesh netværk.
-Et mesh netværk er på nogle måder en videreudvikling af et stjerne netværk, hvor man nu, i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
+Signal problemet, som opstår ved at anvende et stjernenetværk, kan løses ved at anvende en netværkstype bedst kendt som et meshnetværk.
+Et meshnetværk er på nogle måder en videreudvikling af et stjernenetværk, hvor man i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
 \img{figures/meshnetwork.png}{Mesh netværks diagram}{meshnetworkdiagram}{1}
-Med mellemstationerne i mesh netværket betyder det at det nu er muligt at sprede en netværk over en meget stor afstand da man ikke længere er afhængig af at alle noderne skal kunne snakke med masteren direkte, men derimod skal alle enheder bare kunne se en anden enhed. Dette er en ideel løsning til lejlighedsløsningen da man nu både har muligheden for at bruge det i en hel lejligheds blok så længe der bare er enheder spredt jævnt ud i bygningen så der er fuld dækning, samt at det muliggør kommunikation imellem en meget stor mængde radio moduler. Med disse fordele er det valgt at bruge denne netværks model til at udvikle lejligheds løsningen.
+Med mellemstationerne i meshnetværket betyder det at det nu er muligt at sprede et netværk over en meget stor afstand, da man ikke længere er afhængig af at alle noderne skal kunne snakke med masteren direkte, men derimod skal alle enheder bare kunne se en anden enhed. Dette er en ideél løsning til lejlighedskomplekset, da man både har mulighed for at bruge det i en hel lejlighedsblok, så længe der bare er enheder spredt jævnt ud i bygningen, samt muliggør kommunikation imellem en meget stor mængde radiomoduler. Med disse fordele er det valgt at bruge denne netværksmodel til at udvikle lejlighedsløsningen.
 
