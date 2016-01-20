@@ -2,7 +2,15 @@
 
  \nomgroup{A}
 
-  \item [{Tht}]\begingroup Through hole technology\nomeqref {0}
+  \item [{LSB}]\begingroup Least significant bit\nomeqref {0}
+		\nompageref{1}
+  \item [{PCB}]\begingroup Printet circuit board\nomeqref {0}
+		\nompageref{1}
+  \item [{PPM}]\begingroup Parasite power mode\nomeqref {0}
+		\nompageref{1}
+  \item [{THT}]\begingroup Through hole technology\nomeqref {0}
+		\nompageref{1}
+  \item [{UART}]\begingroup Universal asynhcronous reciever/transmitter\nomeqref {0}
 		\nompageref{1}
 
 \end{thenomenclature}

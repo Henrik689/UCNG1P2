@@ -1,1 +1,5 @@
-\nomenclatureentry{aTht@[{Tht}]\begingroup Through hole technology\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aTHT@[{THT}]\begingroup Through hole technology\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aUART@[{UART}]\begingroup Universal asynhcronous reciever/transmitter\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aPCB@[{PCB}]\begingroup Printet circuit board\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aPPM@[{PPM}]\begingroup Parasite power mode\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aLSB@[{LSB}]\begingroup Least significant bit\nomeqref {0}|nompageref}{1}
