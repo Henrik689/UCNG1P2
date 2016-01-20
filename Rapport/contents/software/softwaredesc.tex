@@ -6,9 +6,6 @@ Softwarens struktur er bygget op omkring to sensorer som måler temperatursvingn
   \caption{Software flowchart.}
   \label{fase1flow}
 \end{figure}
-\fxnote{rediger flowchart så så pilen i start funktionen fra start og ikke imod start.}
-
-\fxnote{kode i midten eller helt til venstre?(fjern centering)}
 
 \begin{figure}[h!]
   \centering
@@ -25,8 +22,7 @@ Temperaturen gemmes herefter i en integer, ds18Temp, som bruges senere, i compar
   \caption{Funktion til aflæsning af temperatur fra DHT11}
   \label{dht11Measure}
 \end{figure}
-Denne funktion gemmer temperaturen og fugtigheden målt fra sensoren DHT11. Dette gøres gennem et bibliotek stillet til rådighed af Adafruit.\newline
-\fxnote{nævn at denne også bruger 1-Wire og det ikke var nødvendigt at lave koden forfra her også?}
+Denne funktion gemmer temperaturen og fugtigheden målt fra sensoren DHT11, som også anvender 1-Wire protokollen. Dette gøres gennem et bibliotek stillet til rådighed af Adafruit.\newline
 Disse gemmes i en integer hver, dog bliver fugtigheden ikke brugt.
 
 \begin{figure}[h!]
