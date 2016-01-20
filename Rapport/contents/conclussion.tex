@@ -1,21 +1,23 @@
-%Opgavebeskrivelse
 I denne opgave var formålet at designe, implementere og teste et elektronisk system med henblik på overvågning af vandspild i private husstande.
-\\ 
 \\
+\\
+Løsningen er designet omkring et Arduino board, med et tilhørende stykke software som finder de enkelte temperaturer og diferencen imellem dem. Temperaturmålingen på rørert bliver foretaget af en DS18B20 sensor, hvor et bibliotek blev skrevet fra bunden. Den anden sensor DHT11, som foretager temperatur målingen i rummet, anvender et allerede færdiglavet bibliotek.
+\\
+\\
+%Opgavebeskrivelse
+%I denne opgave var formålet at designe, implementere og teste et elektronisk system med henblik på overvågning af vandspild i private husstande.
 %Overblik
-Løsningen er designet omkring et Arduino board, en ds18b20 sensor til måling af temperatur på røret og en dht11 sensor til måling af temperatur og fugtighed i  rummet. Softwaren kan deles op i tre dele, et bibliotek til anvendelse af sensor ds18b20 som blev skrevet ud fra det tilhørende datablad, sensor dht11  og et hovedprogram til styring af funktioner.            
-\\
-\\
+%Løsningen er designet omkring et Arduino board, en DS18B20 sensor til måling af temperatur på røret og en DHT11 sensor til måling af temperatur og fugtighed i  rummet. Softwaren kan deles op i tre dele. Et bibliotek til anvendelse af sensor DS18B20 blev skrevet ud fra det tilhørende datablad. DHT11 sensoren anvendte et færdiglavet bibliotek og et program blev skrevet til at hente og benytte funktionerne fra bibliotekerne.          
 %Fremgangsmåde
-Gruppen har ved hjælp af et Arduino board og to sensorer implementeret et stykke software, som blev bygget fra bunden. Funktionerne konstrueret i softwaren udfører to temperatur målinger. Herfra foretages en differens af målingerne og giver et output til en terminal. Denne difference i temperaturen afgører om vandspild forekommer.
-\\
-\\
+%Gruppen har ved hjælp af et Arduino board og to sensorer implementeret et stykke software, som blev bygget fra bunden. Funktionerne konstrueret i softwaren udfører to temperatur målinger. Herfra foretages en differens af målingerne og giver et output til en terminal. Denne difference i temperaturen afgører om vandspild forekommer.
 %Videreudvikling
 Løsningsforslaget blev udvidet, men pga. tidsmangel er dette skrevet som et videreudviklings afsnit i stedet for at stå i design. 
 %Data logning -hjemmeside - shield
 For at logge data er en hjemmeside blevet konstrueret, hvor Arduinoen kan sende data dertil ved hjælp af et ethernet shield.
 %radio modul - Mesh netværk
 Gruppen har tilføjet radio moduler og sat det op i  et mesh netwærk.
+
+\fxnote{DS18B20 og DHT11 skal være med store bogstaver}
 
 
 
