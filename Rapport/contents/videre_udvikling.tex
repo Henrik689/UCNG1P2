@@ -4,7 +4,7 @@ Som et led i arbejdsprocessen med udvikling af systemet, er der blevet arbejdet 
 Den første del af videreudviklingen består i, at gøre systemet i stand til ikke bare at kunne visse de målte data og anden beregning der bliver foretaget, men at logge det over tid så det både kan bruges til at logføre markante ændringer over tid, samt at kunne fremvise det loggede data for en forbruger af systemet.
 
 \subsection{Arduino ethernet shield}
-For at gøre systemet i stand til at kunne logge de målte og beregnede data, er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at forbinde Arduinoen med internettet, derudover er der blevet skrevet et stykke kode der gør det muligt for Arduinoen at lægge data op på en SQL(Structured Query Language) database på nettet.
+For at gøre systemet i stand til at kunne logge de målte og beregnede data, er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at forbinde Arduinoen med internettet, derudover er der blevet skrevet et stykke kode der gør det muligt for Arduinoen at lægge data op på en SQL\footnote{Structured Query Language} database på nettet.
 \img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.7}\newline
 
 Flowet af programmet til brug af ethernet shieldet følger samme flow vist i figur \ref{fase1flow}
@@ -44,7 +44,7 @@ $sql->close();
 
 \subsection{GUI hjemmeside}
 Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrere det loggede data til forbrugeren af systemet.
-Der er som en del af videreudviklingen blevet lavet et simpelt interface, bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML(Hyper Text Markup Language).
+Der er som en del af videreudviklingen blevet lavet et simpelt interface, bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML\footnote{Hyper Text Markup Language}.
 \img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
 Ideen med hjemmesiden er at gøre det nemt for forbrugeren at overvåge hvordan det forløber med dataen der kommer ind fra de enheder der er forbundet til den, samt at siden er i stand til at kunne vise beskeder fra systemet.
 
@@ -54,13 +54,13 @@ Som det sidste led i videreudviklingsprocessen, er der blevet kigget på hvordan
 \subsection{Radio moduler}
 Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radiomodulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
-Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP(User Datagram Protocol) og TCP(Transmission Control Protocol) protokoller som f.eks WiFi gør. 
-Kommnukationen mellem mikrocontrolleren sker via en seriel SPI(Serial Periphial Interface) forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
+Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
+Kommnukationen mellem mikrocontrolleren sker via en seriel SPI\footnote{Serial Periphial Interface} forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Mesh netværk}
 \subsubsection*{P2P}
 Radiomodulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
-Den første og mest anvendte metode er P2P(Point to Point).
+Den første og mest anvendte metode er P2P\footnote{Point to Point}.
 \img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
 P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om én måleenhed og én master der skulle kommunikere trådløst. Dette er dog ikke ideelt til en flexibel løsning hvor det ønskes at anvende disse radiomoduler til et produkt, hvor der er behov for mere end én måleenhed.
 
