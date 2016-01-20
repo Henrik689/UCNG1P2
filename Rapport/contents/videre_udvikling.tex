@@ -4,7 +4,7 @@ Som et led i arbejd processen med udvikling af systemet er der blevet arbejdet p
 Den første del af videre udviklingen består i at gøre systemet i stand til ikke bare at kunne visse de målte data og anden beregning der bliver foretaget, men at logge det over tid så det både kan bruges til at logfører markante ændringer over tid, samt at kunne fremvise det loggede data for en forbruger af systemet.
 
 \subsection{Arduino ethernet shield}
-For at gøre systemet i stand til at kunne logge de målte og beregnede data er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at finde arduinoen med internettet, samt der er blevet skrevet kode der gør det muligt for arduinoen at lægge data op på en SQL database på nettet.
+For at gøre systemet i stand til at kunne logge de målte og beregnede data er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at finde arduinoen med internettet, samt der er blevet skrevet kode der gør det muligt for arduinoen at lægge data op på en SQL\footnote{Structured Query Language} database på nettet.
 \img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.7}\newline
 program flowet med brugen af ethernet shieldet følger det samme flow vist i figur \ref{fase1flow}
 med undtagelse af det sidste led værende "Print til terminal", i stedet bliver der nu oprettet en forbindelse til en PHP side på nettet hvor efter arduinoen sender en HTTP POST pakke til siden, derved ser det nye flow således sådan ud:
@@ -43,7 +43,7 @@ $sql->close();
 
 \subsection{GUI hjemmeside}
 Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrerer det loggede data til forbrugeren af systemet.
-Der er som en del af videre udviklingen blevet lavet et simpelt interface bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og javascript samt HTML.
+Der er som en del af videre udviklingen blevet lavet et simpelt interface bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML\footnote{Hyper Text Markup Language}.
 \img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
 Ideen med hjemmesiden er at gøre det nemt for forbrugeren at monitorer hvordan det forløber med det data der kommer ind fra de enheder der er forbundet til den, samt at det er i stand til at kunne vise hvis der skulle være beskeder fra systemet.
 
@@ -53,15 +53,15 @@ Som det sidste led i videre udviklings processen er der blevet kigget på hvorda
 \subsection{Radio moduler}
 Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radio modulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
-Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig ikke som standard af UDP og TCP protokoller som f.eks WiFi gør. 
-Kommnukationen mellem mikrocontrolleren sker via en seriel SPI forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
+Dette er en lille og meget billig radio modul som kommunikere med en båndbredde på 2.4GHz men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
+Kommnukationen mellem mikrocontrolleren sker via en seriel SPI\footnote{Serial Periphial Interface} forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Mesh netværk}
 \subsubsection*{P2P}
 Radio modulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
-Den første og mest anvendte metode er P2P (Point 2 Point).
+Den første og mest anvendte metode er P2P\footnote{Point to Point}.
 \img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
-P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om en måleenhed og en master der skulle kommunikere trådløst, dette er dog langt fra ideelt til en flexibel løsning som det ønskes at anvende disse radio moduler til hvor der er flere en 1 måleenhed.
+P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om en måleenhed og en master der skulle kommunikere trådløst, dette er dog langt fra ideelt til en flexibel løsning som det ønskes at anvende disse radio moduler til hvor der er flere end 1 måleenhed.
 
 \subsubsection*{Stjerne netværk}
 Den næste mulige netværk konfiguration er er bedst kendt som et stjerne netværk. denne type netværk er en viderebygning af tidligere nævnte P2P model, da man her, i stedet for kun har to enheder der kan kommunikere med hinanden, har en master enhed der kan kommunikere med mange enheder på engang. Dette er en klar fordel da man nu i forhold til at, skulle det anvendes til lejlighedsløsningen, har mulighed for at have så mange enheder der er brug for som så kan måle de data punkter de skal, for at så derved at kunne sende det til masteren som så kan sende det videre.

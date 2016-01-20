@@ -10,4 +10,4 @@
 Ovenover er vist figur \ref{p1_skema}, som giver et overblik over skemaet af det elektroniske kredsløb brugt til produktet.
 Begge sensorer fungerer gennem 1-Wire og deres datalinie er derfor direkte forbundet til mikroprocessoren, og strømtilførslen gennem en modstand.
 
-Til DS18B20 er der valgt at gå væk fra Parasite Power Mode(PPM)\footnote{Sensoren kan modtage strøm gennem datalinien}, da det blev valgt at bruge sensorens egen temperatur konversion, hvilket ville bruge mere strøm end PPM kan tilføre.
+Til DS18B20 er der valgt at gå væk fra PPM\footnote{Parasite Power Mode}, hvilket er sensorens måde at modtage strøm gennem datalinien. Denne beslutning blev taget, da det blev valgt bruge sensorens egen temperatur konversion, hvilket ville bruge mere strøm end PPM kan tilføre.
