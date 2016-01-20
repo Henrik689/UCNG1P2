@@ -29,7 +29,7 @@ Initialiseringsfunktionen, som ses på flowchartet, er konstrueret ved at finde 
   \label{sensor_init}
 \end{figure}
 
-Fra databladet ses at 1-wire forbindelsen skal have en reset pulse i minimum 480$\mu$S og en presence pulse vil blive sendt fra sensoren til mikroprocessoren, som vare mellem 60 og 240$\mu$S. Dette gøres ved at sende et low signal som svare til reset pulsen. Derefter sættes forbindelsen til input, hvor den vil gå i tri-state mode og pull-up modstanden vil trække signalet højt. 
+Fra databladet ses at 1-Wire forbindelsen skal have en reset pulse i minimum 480$\mu$S og en presence pulse vil blive sendt fra sensoren til mikroprocessoren, som vare mellem 60 og 240$\mu$S. Dette gøres ved at sende et low signal som svare til reset pulsen. Derefter sættes forbindelsen til input, hvor den vil gå i tri-state mode og pull-up modstanden vil trække signalet højt. 
 \\
 \\
 I koden bliver dette gjort ved at kalde digitalWrite med low som parameter, i kombination med et delay på 500$\mu$S. Derefter sættes pinMode til input og et delay på 500$\mu$S anvendes igen. Dette kan ses på figur \ref{sensor_kode}.

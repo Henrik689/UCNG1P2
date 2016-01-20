@@ -12,7 +12,7 @@ Dette gøres ved at forbinde dataforbindelsen på sensoren med mikroprocessoren,
   \label{one_wire_schematic}
 \end{figure}
 
-1-wire fungere lidt anderledes end en normal data forbindelse. Data bliver læst som tiden hvor der er et 0 V signal, og pull-op modstanden vil så trække signalet høj hver gang der intet signal er. Der vil ligge 5 V på dataforbindelsen indtil enten sensor eller mikroprocessor begynder at sende 0 V, hvor den anden enhed så kan registrer hvor længe der ligge 0 V på dataforbindelsen. Tidslængden af 0 V signalet afgører om den enheder der modtager skal opfatte signalet som et 0 eller 1. Hvis der skal skrives et 0 udsendes der et 0 V signal i 60 $\mu$S og hvis der skal skrives 1 sendes der 0 V i 15 $\mu$S. 
+1-Wire fungere lidt anderledes end en normal data forbindelse. Data bliver læst som tiden hvor der er et 0 V signal, og pull-op modstanden vil så trække signalet høj hver gang der intet signal er. Der vil ligge 5 V på dataforbindelsen indtil enten sensor eller mikroprocessor begynder at sende 0 V, hvor den anden enhed så kan registrer hvor længe der ligge 0 V på dataforbindelsen. Tidslængden af 0 V signalet afgører om den enheder der modtager skal opfatte signalet som et 0 eller 1. Hvis der skal skrives et 0 udsendes der et 0 V signal i 60 $\mu$S og hvis der skal skrives 1 sendes der 0 V i 15 $\mu$S. 
 
 Når der skal læses over 1-Wire sker dette 30 $\mu$S efter at der er registreret en falded spænding. Dette vil så sige at da 0 svare til et delay på 60 $\mu$S vil der måles 0 V her, og da 1 svare til et delay på maksimum 15 $\mu$S vil der læses 5 V eller et højt signal her.
 
@@ -24,7 +24,7 @@ Når der skal læses over 1-Wire sker dette 30 $\mu$S efter at der er registrere
   \label{onewire_graph}
 \end{figure}
 
-På figur \ref{onewire_graph} ses det hvordan det vil se ud hvis man ønsker at sende et 0xC over 1-Wire forbindelsen. Det binære tal for 0xC er 1100 og da 1-Wire skriver fra LSB, skal det ses bagfra. Dette ses på grafen som 2 "store" mellemrum hvor der bliver skrevet 0 V på dataforbindelsen efterfuldt af to "korte" som svare til to 1 tal. Dette er blevet eftermålt med et oscilloskop og kan ses på figur \ref{SCR01}.
+På figur \ref{onewire_graph} ses det hvordan det vil se ud hvis man ønsker at sende et 0xC over 1-Wire forbindelsen. Det binære tal for 0xC er 1100 og da 1-Wire skriver fra LSB\footnote{Least Significant Bit}, skal det ses bagfra. Dette ses på grafen som 2 "store" mellemrum hvor der bliver skrevet 0 V på dataforbindelsen efterfuldt af to "korte" som svare til to 1 tal. Dette er blevet eftermålt med et oscilloskop og kan ses på figur \ref{SCR01}.
 
 
 \begin{figure}[h!]
