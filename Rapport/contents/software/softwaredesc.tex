@@ -6,15 +6,14 @@ Softwarens struktur er bygget op omkring to sensorer som måler temperatursvingn
   \caption{Software flowchart.}
   \label{fase1flow}
 \end{figure}
-
+\newpage
 \begin{figure}[h!]
   \centering
   \fbox{\includegraphics[width=0.5\textwidth]{figures/kode_measure_ds18b20.png}}
   \caption{Funktion til aflæsning af temperatur fra DS18B20}
   \label{ds18b20Measure}
 \end{figure}
-Funktionen measureDs18b20Temp() er en samling af de nødvendige funktioner sensoren skal bruge for at sende en temperatur til mikroprocessoren, samt en funktion til at konvertere dataen, som modtages i hex, til et tal der kan vises.\newline
-Temperaturen gemmes herefter i en float, ds18Temp, som bruges senere, i compareTemps().\\\\
+Funktionen measureDs18b20Temp() er en samling af de nødvendige funktioner sensoren skal bruge for at sende en temperatur til mikroprocessoren, samt en funktion til at konvertere dataen, som modtages i hex, til et tal der kan vises. Temperaturen gemmes herefter i en float, ds18Temp, som bruges senere, i compareTemps().
 
 \begin{figure}[h!]
   \centering
@@ -22,7 +21,7 @@ Temperaturen gemmes herefter i en float, ds18Temp, som bruges senere, i compareT
   \caption{Funktion til aflæsning af temperatur fra DHT11}
   \label{dht11Measure}
 \end{figure}
-Denne funktion gemmer temperaturen og luftfugtigheden målt fra sensoren DHT11, som også anvender 1-Wire protokollen. Dette gøres gennem et bibliotek stillet til rådighed af Adafruit.\newline
+Denne funktion gemmer temperaturen og luftfugtigheden målt fra sensoren DHT11, som også anvender 1-Wire protokollen. Dette gøres gennem et bibliotek stillet til rådighed af Adafruit.
 Disse gemmes i en float hver, dog bliver fugtigheden ikke anvendt.
 
 \begin{figure}[h!]

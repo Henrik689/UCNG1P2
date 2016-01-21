@@ -11,14 +11,22 @@ Sensoren, som blev beskrevet i hardwareafsnittet, skal kommunikere med Arduino b
 \end{figure}
 
 I databladet til DS18B20 sensoren ses et flowchart der viser hvordan mikroprocessoren kommunikerer med sensoren og hvordan den tilgår funktionerne  sensoren kan udføre. Ud fra flowchartet er der konstrueret en mindre version, som indeholder de nødvendige funktioner for at tage en temperaturmåling. Disse funktioner ses på figur \ref{sensor_min}.
+\newpage
+På figur \ref{sensor_total} ses alle de funktioner der er lavet for at Arduinoen kan kommunikere med DS18B20 sensoren. initialize() og writeByte() funktionerne er beskrevet i dette afsnit.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/sensor_communication.png}
+  \caption{De funktioner der skal til for at mikroprocessoren kan kommunikere med sensoren.}
+  \label{sensor_total}
+\end{figure}
 
 \newpage
 \subsection{initialize()}
 Initialiseringsfunktionen, som ses på flowchartet, er konstrueret ved at finde intervallerne som er nødvendige for at tilgå sensoren over en 1-Wire forbindelse. Disse er aflæst af en graf fra databladet (jf. figur \ref{sensor_min}).
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/Initialization_timing.png}
+  \includegraphics[width=1\textwidth]{figures/Initialization_timing.png}
   \caption{Fra datablad om hvordan sensor skal initialiseres.}
   \label{sensor_init}
 \end{figure}
@@ -34,7 +42,7 @@ I koden bliver dette gjort ved at kalde digitalWrite() med low som parameter, i 
   \caption{Initialisering kode.}
   \label{sensor_kode}
 \end{figure}
-
+\newpage
 \subsection{writeByte()}
 For at sende kommandoer til sensoren er en writeByte() funktion konstrueret. Den er lavet ud fra samme fremgangsmåde som initialize() funktionen ved at aflæse en graf der indeholder de intervaller der skal til for at tilgå sensoren.
 
@@ -45,13 +53,3 @@ For at sende kommandoer til sensoren er en writeByte() funktion konstrueret. Den
   \label{write_byte}
 \end{figure}
 Det kode som står under if(), er det kode som anvendes hvis der ønskes at skrive et 1 tal og det der står under else(), er det der anvedes til at skrive et 0. Da sensoren modtager 1 bit af gangen, kører for-loopet igennem otte gange . Hver gang en enkelt bit bliver kontrolleret, om der står 1 eller 0, vil der blive foretaget et bitshift til højre og den næste bit vil blive kontrolleret. På denne måde kan der skrives til sensoren.
-
-
-\subsection{Overblik}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{figures/sensor_communication.png}
-  \caption{De funktioner der skal til for at mikroprocessoren kan kommunikere med sensoren.}
-  \label{sensor_total}
-\end{figure}
