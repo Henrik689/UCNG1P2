@@ -1,10 +1,10 @@
-Som et led i arbejdsprocessen med udvikling af systemet, er der blevet arbejdet på hvordan systemet kan videreudvikles til at have mere funktion i forhold til at dette system skulle anvendes i en virkelig situation.
+Som et led i arbejdsprocessen med udvikling af systemet, er der blevet arbejdet på hvordan systemet kan videreudvikles til at have flere funktioner i forhold til at dette system skulle anvendes i en virkelig situation.
 
 \section{Data logning}
 Den første del af videreudviklingen består i, at gøre systemet i stand til ikke bare at kunne visse de målte data og anden beregning der bliver foretaget, men at logge det over tid så det både kan bruges til at logføre markante ændringer over tid, samt at kunne fremvise det loggede data for en forbruger af systemet.
 
 \subsection{Arduino ethernet shield}
-For at gøre systemet i stand til at kunne logge de målte og beregnede data, er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at forbinde Arduinoen med internettet, derudover er der blevet skrevet et stykke kode der gør det muligt for Arduinoen at lægge data op på en SQL\footnote{Structured Query Language} database på nettet.
+For at gøre systemet i stand til at kunne logge de målte og beregnede data, er der til dette projekt blevet valgt at bruge et Arduino Ethernet Shield for at forbinde Arduinoen med internettet, derudover er der blevet skrevet et stykke kode der gør det muligt for Arduinoen at uploade data til en SQL\footnote{Structured Query Language} database på nettet.
 \img{figures/ethernetshield.jpg}{Arduino Ethernet Shield. Foto af: http://tech-things.net/}{ethernetshield}{0.7}\newline
 
 Flowet af programmet til brug af ethernet shieldet følger samme flow vist i figur \ref{fase1flow}
@@ -45,7 +45,7 @@ $sql->close();
 \subsection{GUI hjemmeside}
 Med tilføjelsen af SQL datalogning har det givet nem adgang til at kunne illustrere det loggede data til forbrugeren af systemet.
 Der er som en del af videreudviklingen blevet lavet et simpelt interface, bestående af en hjemmeside som er programmeret i en blanding af sprogende PHP og Javascript samt HTML\footnote{Hyper Text Markup Language}.
-\img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
+\img{figures/webguimain.png}{Hovedsiden af brugerinterfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
 Ideen med hjemmesiden er at gøre det nemt for forbrugeren at overvåge hvordan det forløber med dataen der kommer ind fra de enheder der er forbundet til den, samt at siden er i stand til at kunne vise beskeder fra systemet.
 
 \section{Lejlighedsløsning}
@@ -54,14 +54,16 @@ Som det sidste led i videreudviklingsprocessen, er der blevet kigget på hvordan
 \subsection{Radiomoduler}
 Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radiomodulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
-Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
-Kommnukationen mellem mikrocontrolleren sker via en seriel SPI\footnote{Serial Periphial Interface} forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
+Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP og TCP protokoller som f.eks WiFi gør. 
+Kommnukationen mellem mikrocontrolleren og radiomodulet sker via en seriel SPI forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
 \subsection{Meshnetværk}
 \subsubsection*{P2P}
 Radiomodulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
-Den første og mest anvendte metode er P2P\footnote{Point to Point}.
-\img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
+Den første og mest anvendte metode er P2P.
+\img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}
+\newline
+\newline
 P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om én måleenhed og én master der skulle kommunikere trådløst. Dette er dog ikke ideelt til en flexibel løsning hvor det ønskes at anvende disse radiomoduler til et produkt, hvor der er behov for mere end én måleenhed.
 
 \subsubsection*{Stjernenetværk}
@@ -72,7 +74,7 @@ Begrænsningen ved at anvende et stjernenetværk til lejlighedsløsningen, ligge
 
 \subsubsection*{Meshnetværk}
 Signal problemet, som opstår ved at anvende et stjernenetværk, kan løses ved at anvende en netværkstype bedst kendt som et meshnetværk.
-Et meshnetværk er på nogle måder en videreudvikling af et stjernenetværk, hvor man i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
+Et meshnetværk er på nogle måder en videreudvikling af et stjernenetværk, hvor man i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren (jf. \ref{meshnetworkdiagram}).
 \img{figures/meshnetwork.png}{Mesh netværks diagram}{meshnetworkdiagram}{1}
 Med mellemstationerne i meshnetværket betyder det at det nu er muligt at sprede et netværk over en meget stor afstand, da man ikke længere er afhængig af at alle noderne skal kunne snakke med masteren direkte, men derimod skal alle enheder bare kunne se en anden enhed. Dette er en ideél løsning til lejlighedskomplekset, da man både har mulighed for at bruge det i en hel lejlighedsblok, så længe der bare er enheder spredt jævnt ud i bygningen, samt muliggør kommunikation imellem en meget stor mængde radiomoduler. Med disse fordele er det valgt at bruge denne netværksmodel til at udvikle lejlighedsløsningen.
 

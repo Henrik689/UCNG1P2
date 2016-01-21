@@ -1,4 +1,4 @@
-\nomenclatureentry{aTHT@[{THT}]\begingroup Through hole technology\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aTHT@[{THT}]\begingroup Through-hole technology\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aUART@[{UART}]\begingroup Universal asynhcronous reciever/transmitter\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aPCB@[{PCB}]\begingroup Printet circuit board\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aPPM@[{PPM}]\begingroup Parasite power mode\nomeqref {0}|nompageref}{1}
@@ -9,3 +9,4 @@
 \nomenclatureentry{aTCP@[{TCP}]\begingroup Transmission control protocol\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aSPI@[{SPI}]\begingroup Serial periphial interface\nomeqref {0}|nompageref}{1}
 \nomenclatureentry{aP2P@[{P2P}]\begingroup Point to point\nomeqref {0}|nompageref}{1}
+\nomenclatureentry{aSMD@[{SMD}]\begingroup Surface-mount device\nomeqref {0}|nompageref}{1}

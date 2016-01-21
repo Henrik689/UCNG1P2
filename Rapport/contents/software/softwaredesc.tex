@@ -1,5 +1,5 @@
 \section{Softwarestruktur- og funktionalitet}
-Softwarens struktur er bygget op omkring to sensorer som måler temperatursvingninger mellem rummet og vandrøret. I dette afsnit vil de enkelte funktionerne i softwaren blive beskrevet. 
+Softwarens struktur er bygget op omkring to sensorer som måler temperatursvingninger mellem rummet og vandrøret. I dette afsnit vil de enkelte funktioner i softwaren blive beskrevet. 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{figures/Fase1software.png}
@@ -13,8 +13,8 @@ Softwarens struktur er bygget op omkring to sensorer som måler temperatursvingn
   \caption{Funktion til aflæsning af temperatur fra DS18B20}
   \label{ds18b20Measure}
 \end{figure}
-Funktionen measureDs18b20Temp() er en samling af de nødvendige funktioner sensoren skal bruge for at sende en temperatur til mikroprocessoren, samt en funktion til at konvertere dataen, som modtages i hex, til et tal kan vises.\newline
-Temperaturen gemmes herefter i en integer, ds18Temp, som bruges senere, i compareTemps().\\\\
+Funktionen measureDs18b20Temp() er en samling af de nødvendige funktioner sensoren skal bruge for at sende en temperatur til mikroprocessoren, samt en funktion til at konvertere dataen, som modtages i hex, til et tal der kan vises.\newline
+Temperaturen gemmes herefter i en float, ds18Temp, som bruges senere, i compareTemps().\\\\
 
 \begin{figure}[h!]
   \centering
@@ -23,7 +23,7 @@ Temperaturen gemmes herefter i en integer, ds18Temp, som bruges senere, i compar
   \label{dht11Measure}
 \end{figure}
 Denne funktion gemmer temperaturen og luftfugtigheden målt fra sensoren DHT11, som også anvender 1-Wire protokollen. Dette gøres gennem et bibliotek stillet til rådighed af Adafruit.\newline
-Disse gemmes i en integer hver, dog bliver fugtigheden ikke anvendt.
+Disse gemmes i en float hver, dog bliver fugtigheden ikke anvendt.
 
 \begin{figure}[h!]
   \centering
