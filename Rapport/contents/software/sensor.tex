@@ -3,17 +3,15 @@
 Sensoren, som blev beskrevet i hardwareafsnittet, skal kommunikere med Arduino boardet. Dette kræver nogle trin som kan findes i databladet til sensoren. På figur \ref{sensor_min} ses et overblik over funktioner lavet i softwaren, som skal til for at aflæse sensoren. Disse funktioner er konstrueret ud fra databladet, hvor det ses at tre trin skal følges præcist for at tilgå sensoren. De tre trin er en initialisering, ROM command og function command. Herefter er sensoren klar til at blive aflæst.
 
 
-
-I databladet til DS18B20 sensoren ses et flowchart der viser hvordan mikroprocessoren kommunikerer med sensoren og hvordan den tilgår funktionerne  sensoren kan udføre. Ud fra flowchartet er der konstrueret en mindre version, som indeholder de nødvendige funktioner for at tage en temperaturmåling. Disse funktioner ses på figur \ref{sensor_min}.
-
-
-
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1\textwidth]{figures/sensor_minimum.png}
+  \includegraphics[width=0.9\textwidth]{figures/sensor_minimum.png}
   \caption{Kommunikation med sensor.}
   \label{sensor_min}
 \end{figure}
+
+I databladet til DS18B20 sensoren ses et flowchart der viser hvordan mikroprocessoren kommunikerer med sensoren og hvordan den tilgår funktionerne  sensoren kan udføre. Ud fra flowchartet er der konstrueret en mindre version, som indeholder de nødvendige funktioner for at tage en temperaturmåling. Disse funktioner ses på figur \ref{sensor_min}.
+
 
 \newpage
 \subsection{initialize()}
@@ -24,7 +22,7 @@ Initialiseringsfunktionen, som ses på flowchartet, er konstrueret ved at finde 
   \caption{Fra datablad om hvordan sensor skal initialiseres.}
   \label{sensor_init}
 \end{figure}
-\newpage
+
 Fra databladet ses at 1-Wire forbindelsen skal have en reset pulse i minimum 480$\mu$S og en presence pulse vil herefter blive sendt fra sensoren til mikroprocessoren inden for 60-240$\mu$S. Dette gøres ved at sende et low signal som svarer til reset pulsen. Derefter sættes forbindelsen til input, hvor den vil gå i tri-state mode og pull-up modstanden vil trække signalet højt. 
 \\
 \\
