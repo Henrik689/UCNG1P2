@@ -48,29 +48,29 @@ Der er som en del af videreudviklingen blevet lavet et simpelt interface, bestå
 \img{figures/webguimain.png}{Hovedsiden af bruger interfacet\fixme{opdatere billedet med ds18 data}}{webguimain}{1}\newline
 Ideen med hjemmesiden er at gøre det nemt for forbrugeren at overvåge hvordan det forløber med dataen der kommer ind fra de enheder der er forbundet til den, samt at siden er i stand til at kunne vise beskeder fra systemet.
 
-\section{Lejligheds løsning}
+\section{Lejlighedsløsning}
 Som det sidste led i videreudviklingsprocessen, er der blevet kigget på hvordan system kan blive viderebygget til at kunne fungere som en samlet enhed i et lejlighedskompleks. For at gøre systemet mere fleksibelt og modulært er der blevet fokuseret på at forbinde måleenheder med en masterenhed via radiomoduler. Måleenhederne snakker med hinanden og masteren internt gennem radioenhederne og masteren modtager det målte data fra måleenhederne og sender det op til SQL serveren til logning.
 
-\subsection{Radio moduler}
+\subsection{Radiomoduler}
 Til den interne kommunikation mellem målenhederne er der i dette projekt blevet valgt at bruge radiomodulet NRF04L01+ fra Nordic Semiconductors.
 \img{figures/nrf24l01.png}{NRF24L01+ Radio modul}{nrf24l01}{0.2}\newline
 Dette er et lille og meget billig radiomodul som kommunikerer med en båndbredde på 2.4GHz, men benytter sig ikke som standard af UDP\footnote{User Datagram Protocol} og TCP\footnote{Transmission Control Protocol} protokoller som f.eks WiFi gør. 
 Kommnukationen mellem mikrocontrolleren sker via en seriel SPI\footnote{Serial Periphial Interface} forbindelse og gør at det er muligt at bruge modulet på næsten alle mikrocontrollere der findes.
 
-\subsection{Mesh netværk}
+\subsection{Meshnetværk}
 \subsubsection*{P2P}
 Radiomodulet kan sættes op til at kommunikere på flere forskellige måder afhængigt af hvad der er behov for i den anvendte situation.
 Den første og mest anvendte metode er P2P\footnote{Point to Point}.
 \img{figures/p2p.png}{Point 2 point diagram}{p2pdiagram}{0.4}\newline
 P2P er en effektiv forbindelses konfiguration hvis man skal have to enheder til at snakke sammen individuelt med en simpel forbindelse. Denne løsning ville være brugbar til projektet hvis der kun var tale om én måleenhed og én master der skulle kommunikere trådløst. Dette er dog ikke ideelt til en flexibel løsning hvor det ønskes at anvende disse radiomoduler til et produkt, hvor der er behov for mere end én måleenhed.
 
-\subsubsection*{Stjerne netværk}
+\subsubsection*{Stjernenetværk}
 Den næste mulige netværkskonfiguration  er bedst kendt som et stjernenetværk. Denne type netværk er en viderebygning af tidligere nævnte P2P model, da man her, i stedet for kun at have to enheder der kan kommunikere med hinanden, har én master enhed som kommunikerer med mange enheder på én gang. 
 Dette er en fordel, da det skal anvendes til et lejlighedskompleks. Det skaber mulighed for at lave en modulær løsning, da der kan tilføjes flere enheder.
 \img{figures/starnetwork.png}{Star netværks diagram}{starnetworkdiagram}{0.6}\newline
 Begrænsningen ved at anvende et stjernenetværk til lejlighedsløsningen, ligger i at alle enheder skal kunne have radioforbindelse til masteren, hvilket kan være en stor udfordring i lejlighedskomplekser. Udfordringen opstår på grund af forstyrrende elementer som for eksempel vægge og lignende, som signalet skal passere.
 
-\subsubsection*{Mesh netværk}
+\subsubsection*{Meshnetværk}
 Signal problemet, som opstår ved at anvende et stjernenetværk, kan løses ved at anvende en netværkstype bedst kendt som et meshnetværk.
 Et meshnetværk er på nogle måder en videreudvikling af et stjernenetværk, hvor man i stedet for kun at have en master der kan snakke med alle enheder, har enheder som kan fungere som mellemstationer mellem de yderste noder og masteren \ref{meshnetworkdiagram}
 \img{figures/meshnetwork.png}{Mesh netværks diagram}{meshnetworkdiagram}{1}
