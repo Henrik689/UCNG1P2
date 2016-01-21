@@ -1,7 +1,113 @@
 \newpage
 \subsection{Software}
-\img{figures/samlet_software1.PNG}{}{kode1}{1}
-\newpage
-\img{figures/samlet_software2.PNG}{}{kode2}{1}
-\img{figures/samlet_software3.PNG}{}{kode3}{1}
-\img{figures/samlet_software4.PNG}{Samlet kode til aflæsning af temperatur}{kode4}{1}
+\begin{lstlisting}
+#include <dht.h>
+
+byte data[9];
+float ds18Temp;
+float dht11Temp;
+float dht11Hum;
+
+#define ds18pin 2
+#define SKIPROM 0xCC
+#define CONVERTTEMP 0x44
+#define READSCRATCH 0xBE
+#define dht11pin 3
+
+dht DHT;
+
+void setup() {
+  pinMode(ds18pin, OUTPUT);
+  Serial.begin(9600); //baudrate
+}
+
+void loop() {
+  
+  measureDs18b20Temp();
+  measureDht11Temp();
+
+  compareTemps();
+  
+  delay(1000);
+}
+
+void measureDs18b20Temp() {
+  initialize();
+  writeByte(SKIPROM);
+  writeByte(CONVERTTEMP);
+  initialize();
+  writeByte(SKIPROM);
+  writeByte(READSCRATCH);
+  for (int i = 0; i < 9; i++) {
+    data[i] = readByte();
+  }
+  ds18Temp = convertTemp();
+}
+
+void measureDht11Temp(){
+  DHT.read11(dht11pin);
+  dht11Hum=DHT.humidity;
+  dht11Temp=DHT.temperature;
+}
+
+void compareTemps(){
+  Serial.print("Pipe temperature = ");
+  Serial.print(ds18Temp);
+  Serial.print("    |    ");
+  Serial.print("Ambient temperature = ");
+  Serial.print(dht11Temp);
+  Serial.print("    |    ");
+  Serial.print("Delta temperature = ");
+  Serial.println(dht11Temp-ds18Temp); 
+}
+
+void initialize(){
+  digitalWrite(ds18pin, LOW);
+  pinMode(ds18pin, OUTPUT);
+  delayMicroseconds(500); //Reset pulse minimum
+  pinMode(ds18pin, INPUT); //Set pinmode to allow tristate, so resistor can  pull high
+  delayMicroseconds(500); //Presence pulse plus delay
+}
+
+void writeByte(byte b){
+  for(int i = 8;i!=0;i--){
+    if((b & 0x01) == 1){
+      digitalWrite(ds18pin, LOW); //Set low to init bit send
+      pinMode(ds18pin, OUTPUT); //Set pinmode to allow writing
+      delayMicroseconds(10); //Wait for DS18 sample
+      pinMode(ds18pin, INPUT); //Set pinmode to allow tristate, so resistor can  pull high
+      delayMicroseconds(60); //Waits for sample to complete
+    }
+    else{
+      digitalWrite(ds18pin, LOW);
+      pinMode(ds18pin, OUTPUT);
+      delayMicroseconds(60);
+      pinMode(ds18pin, INPUT);
+    }
+    b=b>>1; //Bitshift 1 bit right, to LSB
+  }
+}
+
+byte readByte(){
+  byte b;
+  int intArray[8];
+  for(int i = 0;i<8;i++){
+    digitalWrite(ds18pin, LOW);
+    pinMode(ds18pin, OUTPUT);
+    delayMicroseconds(5);
+    pinMode(ds18pin, INPUT);
+    delayMicroseconds(5);
+    intArray[i] = digitalRead(ds18pin);
+    delayMicroseconds(50);
+  }
+  b = intArray[0] | (intArray[1]<<1) | (intArray[2]<<2) | (intArray[3]<<3) | 
+  (intArray[4]<<4) | (intArray[5]<<5) | (intArray[6]<<6) | (intArray[7]<<7);
+  return b;
+}
+
+float convertTemp() {
+  int16_t raw = (data[1] << 8) | data[0];
+  return (float)raw / 16.0;
+}
+
+\end{lstlisting}
